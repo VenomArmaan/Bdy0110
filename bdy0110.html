@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countdown</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffa7c4;
+            color: rgb(255, 12, 174);
+            font-family: Arial, sans-serif;
+            font-size: 6vw;
+            margin: 0;
+            position: relative;
+            flex-direction: column;
+            transition: background-image 1s ease;
+        }
+
+        .Countdown {
+            text-align: center;
+            cursor: default;
+            transition: color 0.3s ease;
+            font-family: "Dancing Script", cursive;
+        }
+
+        .celebrate-hover:hover {
+            color: #00ffcc;
+        }
+
+        .corner-img {
+            position: absolute;
+            height: auto;
+            transition: opacity 1s ease;
+        }
+
+        .top-left {
+            width: 20vw;
+            top: 0px;
+            left: 0px;
+        }
+
+        .top-right {
+            width: 20vw;
+            top: 0px;
+            right: 0px;
+        }
+
+        .bottom-left {
+            width: 15vw;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .bottom-right {
+            width: 15vw;
+            bottom: 0px;
+            right: 0px;
+        }
+
+        .gif-container {
+            display: block; /* Visible during countdown */
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .gif-container img {
+            max-width: 50%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="Countdown"></div>
+
+    <div class="gif-container">  
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHVzdTBybGhwOXhleGcxbXNrdXVvaGFidXhudWowaTBqdXp1cTg0MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c76IJLufpNwSULPk77/giphy.gif" alt="Event Celebration GIF">
+    </div>
+
+    <!-- Corner Decorations -->
+    <img src="images/imgTL.png" alt="Top Left Decoration" class="corner-img top-left">
+    <img src="images/imgTR.png" alt="Top Right Decoration" class="corner-img top-right">
+    <img src="images/imgBL.png" alt="Bottom Left Decoration" class="corner-img bottom-left">
+    <img src="images/imgBR.png" alt="Bottom Right Decoration" class="corner-img bottom-right">
+
+    <script>
+        const eventDate = new Date('2025-10-01T00:00:00');
+
+        function pad(num) {
+            return num.toString().padStart(2, '0');
+        }
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = eventDate - now;
+            const countdownEl = document.querySelector('.Countdown');
+
+            if (diff <= 0) {
+                // It's event time!
+                countdownEl.innerHTML = "✨It's your birthday!!!!✨";
+                countdownEl.classList.add("celebrate-hover");
+
+                // Change background
+                document.body.style.backgroundImage = "url('images/image.png')";
+                document.body.style.backgroundSize = "cover";
+                document.body.style.backgroundRepeat = "no-repeat";
+
+                // 🎯 Hide the GIF now
+                document.querySelector('.gif-container').style.display = 'none';
+
+                // Hide corner decorations
+                document.querySelectorAll('.corner-img').forEach(img => {
+                    img.style.opacity = '0';
+                    setTimeout(() => img.style.display = 'none', 1000);
+                });
+
+                // Hover message toggle
+                countdownEl.addEventListener("mouseenter", () => {
+                    countdownEl.innerHTML = "🎉 Let's Celebrate!!! 🎉";
+                });
+
+                countdownEl.addEventListener("mouseleave", () => {
+                    countdownEl.innerHTML = "✨It's your birthday!!!!✨";
+                });
+
+                clearInterval(interval);
+                return;
+            }
+
+            // Countdown display
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            countdownEl.innerHTML =
+                `${days}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
+        }
+
+        const interval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
