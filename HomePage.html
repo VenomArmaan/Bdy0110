@@ -1,1 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                margin: 0;
+                overflow-x: hidden;
+                overflow-y: auto;
+                padding-top: 60px;
+            }
+
+            .topBar {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background-color: #000000;
+                color: white;
+                display: flex;
+                justify-content: space-around;
+                padding: 10px 0;
+                box-sizing: border-box;
+                z-index: 10;
+            }
+
+            .topBar a {
+                color: white;
+                text-decoration: none;
+                font-size: 1em;
+                text-transform: uppercase;
+                position: relative;
+                transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+                padding: 5px;
+            }
+
+            .topBar a:hover {
+                transform: scale(1.3);
+                color: rgba(248, 198, 0, 0.912);
+                text-decoration: double underline;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .HomeArea, .MessageArea, .SongsArea, .GalleryArea {
+                width: 100%;
+                text-align: center;
+            }
+
+            #HomeArea {
+                height: 100vh;
+                background-color: lightblue;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            #MessageArea {
+                font-size: 1.5em;
+                font-weight: bold;
+                line-height: 1.5;
+                height: 100vh;
+                background-color: rgb(18, 101, 173);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #SongsArea {
+                height: 100vh;
+                background-color: lightcoral;
+                padding: 20px;
+            }
+
+            #GalleryArea {
+                height: 100vh;
+                background-color: lightseagreen;
+            }
+
+            .songList {
+                margin-top: 100px;
+                list-style-type: none;
+                padding: 0;
+            }
+
+            .songList li {
+                font-size: 1.2em;
+                margin: 10px 0;
+                background-color: #ffffff;
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+
+            .songList li:hover {
+                transform: scale(1.05);
+                background-color: #f8b400;
+                color: white;
+            }
+
+            .audioPlayer {
+                margin-top: 100px;
+                display: block;
+                width: 100%;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="topBar">
+            <a href="#HomeArea">Home</a>
+            <a href="#MessageArea">Message</a>
+            <a href="#SongsArea">Songs</a>
+            <a href="#GalleryArea">Gallery</a>
+            <a href="index.html">Countdown</a>
+        </div>
+        <div id="HomeArea">
+            <h1>Welcome to the Birthday Celebration!</h1>
+            <p>Navigate through the sections using the top menu.</p>
+        </div>
+        <div id="MessageArea" class="MessageArea">
+            <p>A very Happppppyy birthday to you..........................................................</p>
+        </div>
+        <div id="SongsArea">
+            <h2 style="font-size:40px;">Some Songs For You 🎶🤌✨</h2>
+            <ul class="songList">
+                <li data-song="hbdyMelody.mp3">Happy Birthday</li>
+                <li data-song="Co2.mp3">Co2</li>
+                <li data-song="best_day_ever.mp3">Best Day Ever</li>
+                <li data-song="party_time.mp3">Party Time</li>
+            </ul>
+
+            
+            <audio class="audioPlayer" controls>
+                <source src="audio/hbdyMelody.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div id="GalleryArea">
+            <h2>Gallery</h2>
+            <p>Gallery content goes here...</p>
+        </div>
+
+        <script>
+            const songListItems = document.querySelectorAll('.songList li');
+            const audioPlayer = document.querySelector('.audioPlayer');
+            const audioSource = audioPlayer.querySelector('source');
+
+            songListItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const songFile = item.getAttribute('data-song');
+                    audioSource.src = songFile;
+                    audioPlayer.load();
+                    audioPlayer.play();
+                });
+            });
+        </script>
+    </body>
+</html>
 
