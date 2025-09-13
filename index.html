@@ -5,7 +5,6 @@
     <title>Countdown</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
@@ -31,6 +30,9 @@
             cursor: default;
             transition: color 0.3s ease;
             font-family: "Dancing Script", cursive;
+            display: flex;
+            align-items: center;
+            gap: 1vw;
         }
 
         .celebrate-hover:hover {
@@ -68,7 +70,7 @@
         }
 
         .gif-container {
-            display: block; /* Visible during countdown */
+            display: block;
             margin-top: 20px;
             text-align: center;
         }
@@ -77,16 +79,23 @@
             max-width: 50%;
             height: auto;
         }
+
+        .ribbon {
+            font-size: 0.8em;
+        }
     </style>
 </head>
 <body>
-    <div class="Countdown"></div>
+    <div class="Countdown">
+        <span class="ribbon">🎀</span>
+        <span class="countdown-text"></span>
+        <span class="ribbon">🎀</span>
+    </div>
 
     <div class="gif-container">  
         <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHVzdTBybGhwOXhleGcxbXNrdXVvaGFidXhudWowaTBqdXp1cTg0MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c76IJLufpNwSULPk77/giphy.gif" alt="Event Celebration GIF">
     </div>
 
-    <!-- Corner Decorations -->
     <img src="images/imgTL.png" alt="Top Left Decoration" class="corner-img top-left">
     <img src="images/imgTR.png" alt="Top Right Decoration" class="corner-img top-right">
     <img src="images/imgBL.png" alt="Bottom Left Decoration" class="corner-img bottom-left">
@@ -102,48 +111,45 @@
         function updateCountdown() {
             const now = new Date();
             const diff = eventDate - now;
-            const countdownEl = document.querySelector('.Countdown');
+            const countdownText = document.querySelector('.countdown-text');
 
             if (diff <= 0) {
-                // It's event time!
-                countdownEl.innerHTML = "✨It's your birthday!!!!✨";
-                countdownEl.classList.add("celebrate-hover");
+                countdownText.innerHTML = "✨It's your birthday!!!!✨";
+                countdownText.parentElement.classList.add("celebrate-hover");
 
-                // Change background
                 document.body.style.backgroundImage = "url('images/image.png')";
                 document.body.style.backgroundSize = "cover";
                 document.body.style.backgroundRepeat = "no-repeat";
 
-                // 🎯 Hide the GIF now
                 document.querySelector('.gif-container').style.display = 'none';
 
-                // Hide corner decorations
                 document.querySelectorAll('.corner-img').forEach(img => {
                     img.style.opacity = '0';
                     setTimeout(() => img.style.display = 'none', 1000);
                 });
 
-                // Hover message toggle
-                countdownEl.addEventListener("mouseenter", () => {
-                    countdownEl.innerHTML = "🎉 Let's Celebrate!!! 🎉";
+                countdownText.parentElement.addEventListener("mouseenter", () => {
+                    countdownText.innerHTML = "🎉 Let's Celebrate!!! 🎉";
                 });
 
-                countdownEl.addEventListener("mouseleave", () => {
-                    countdownEl.innerHTML = "✨It's your birthday!!!!✨";
+                countdownText.parentElement.addEventListener("mouseleave", () => {
+                    countdownText.innerHTML = "✨It's your birthday!!!!✨";
+                });
+
+                countdownText.parentElement.addEventListener("click", () => {
+                    window.location.href = "/HomePageBdy.html";
                 });
 
                 clearInterval(interval);
                 return;
             }
 
-            // Countdown display
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
             const minutes = Math.floor((diff / (1000 * 60)) % 60);
             const seconds = Math.floor((diff / 1000) % 60);
 
-            countdownEl.innerHTML =
-                `${days}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
+            countdownText.innerHTML = `${days}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
         }
 
         const interval = setInterval(updateCountdown, 1000);
