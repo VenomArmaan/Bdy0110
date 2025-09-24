@@ -44,48 +44,108 @@
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
             }
 
-            .HomeArea, .MessageArea, .SongsArea, .GalleryArea {
-                width: 100%;
-                text-align: center;
-            }
-
+            /* Home Section */
             #HomeArea {
                 height: 100vh;
-                background-color: lightblue;
+                background-image: url('images/bowBg.png'); 
+                background-size: cover;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
+                position: relative;
             }
 
+            
+            #HomeArea h1, #HomeArea p {
+                background-color: white;
+                color: black; 
+                padding: 15px; 
+                border-radius: 10px; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            }
+
+            /* Message Area */
             #MessageArea {
+                background-image: url('images/bowBerryBg.png');
+                background-size: cover;
+                display: flex;
                 font-size: 1.5em;
                 font-weight: bold;
                 line-height: 1.5;
                 height: 100vh;
-                background-color: rgb(18, 101, 173);
-                display: flex;
                 justify-content: center;
                 align-items: center;
             }
+            .MessageArea p {
+                background-color: rgba(255, 255, 255, 0.8); 
+                color: black; 
+                padding: 20px;  
+                border-radius: 10px; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); 
+                background-color: white;           
+            }
 
+            /* About Her Section */
+            #AboutHer {
+                height: 100vh;
+                background-image: url('images/bowBg.png');
+                background-size: cover;
+                display: flex;
+                flex-direction: column;
+                background-position: center;
+                background-repeat: no-repeat;
+                padding: 100px;
+                text-align: center;
+                font-size: 1.5em;
+                font-weight: bold;
+                line-height: 1.5;
+                color: white;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);                
+            }
+            #AboutHer h2 {
+                border-radius: 10px; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); 
+                background-color: white;
+                font-size: 40px;
+                margin-bottom: 20px;
+                color: rgb(247, 8, 8);
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+            }
+            #AboutHer p {
+                background-color: rgba(255, 255, 255, 0.8); 
+                color: black; 
+                padding: 20px; 
+                border-radius: 10px; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); 
+                font-size: 0.9em;
+                line-height: 1.6;                        
+            }
+            
+            
+
+            /* Songs Section */
             #SongsArea {
                 height: 100vh;
-                background-color: lightcoral;
-                padding: 20px;
+                background-image: url('images/bowBerryBg.png');
+                background-size: cover;
+                padding: 150px;
             }
-
-            #GalleryArea {
-                height: 100vh;
-                background-color: lightseagreen;
+            .songTitle {
+                font-size: 40px;
+                text-align: left;
+                width: fit-content;
+                padding: 10px 20px;
+                color: rgb(255, 0, 0);
+                background-color: white;
+                border-radius: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
             }
-
             .songList {
                 margin-top: 100px;
                 list-style-type: none;
                 padding: 0;
             }
-
             .songList li {
                 font-size: 1.2em;
                 margin: 10px 0;
@@ -95,14 +155,14 @@
                 box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
                 cursor: pointer;
                 transition: transform 0.3s ease;
+                font-family:cursive;
+         
             }
-
             .songList li:hover {
                 transform: scale(1.05);
                 background-color: #f8b400;
                 color: white;
             }
-
             .audioPlayer {
                 margin-top: 100px;
                 display: block;
@@ -111,6 +171,145 @@
                 margin-left: auto;
                 margin-right: auto;
             }
+            .songNameBox {
+                margin-top: 20px;
+                background-color: rgba(255, 255, 255, 0.8);
+                color: black;
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                font-size: 1.2em;
+                text-align: center;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+
+
+
+            /* Gallery Section */
+            #GalleryArea {
+                height: 100vh;
+                background-image: url('images/bowBg.png');
+                background-size: cover;
+                padding: 120px;
+                position: relative;
+
+            }
+            .galleryContainer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                margin-bottom: 20px;
+            }   
+            .smallImages {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 10px;               
+            }
+            .verticalStrip {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 10px;
+            }  
+            .leftStrip {
+                align-items: center;
+            }     
+            .rightStrip {
+                align-items: center;
+            }
+            .bDisplayArea {
+                text-align: center;
+                flex-grow: 1;
+            }
+            .bDisplay {
+                width: 100%;
+                max-width: 600px;
+                height: 400px;
+                object-fit: contain;
+                object-position: center;
+                border: 5px solid #ffffff;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+                background-color: white; /* Optional: background color for the display area */
+                border-radius: 30px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+                
+            }
+            .bottomRow {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 20px;
+                flex-wrap: wrap;
+            }
+            .bottomRow1,
+            .bottomRow2 {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                margin-top: 30px;
+                flex-wrap: wrap;
+            }
+            .sdisplay {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 10px;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+                transition: transform 0.3s ease;
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgb(0, 0, 0);
+            }
+            .sdisplay:hover {
+                transform: scale(1.1);
+            }
+            .galleryTitle {
+                background-color: white;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                font-size: 4em;
+                font-weight: bold;
+                 border-radius: 10px; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); 
+                color: rgb(217, 12, 12);
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+                transform: rotate(-3deg); 
+            }
+            .galleryEmojis {
+                 background-color: white;
+                 border-radius: 40px; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); 
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 2.5em;
+                color: white;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            }
+            
+            /*Seprator*/
+            .separator {
+                width: 100%;
+                height: 10px;  
+                background-color: black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2.2em; 
+                color: white;
+                margin: 20px 0; 
+                text-align: center;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                border-radius: 50px;
+            }
+
         </style>
     </head>
     <body>
@@ -119,17 +318,39 @@
             <a href="#MessageArea">Message</a>
             <a href="#SongsArea">Songs</a>
             <a href="#GalleryArea">Gallery</a>
-            <a href="index.html">Countdown</a>
+            <a href="bdy0110.html">Countdown</a>
         </div>
+        
+
         <div id="HomeArea">
             <h1>Welcome to the Birthday Celebration!</h1>
             <p>Navigate through the sections using the top menu.</p>
         </div>
+
+        <div class="separator">❤️</div>
+
         <div id="MessageArea" class="MessageArea">
             <p>A very Happppppyy birthday to you..........................................................</p>
         </div>
+
+        <div class="separator">❤️</div>
+
+        <div id="AboutHer" >
+            <h2 style="font-size:40px;">About You 🎂🎉✨</h2>
+            <p>
+             Hey Cutie Pie!
+                <br> You are the most beautiful, kind-hearted, and amazing person I know.
+                <br> Your smile lights up every room, and your laughter is contagious.
+                <br> You have a heart of gold, always caring for others and spreading positivity.
+
+              
+            </p>
+        </div>
+
+        <div class="separator">❤️</div>
+
         <div id="SongsArea">
-            <h2 style="font-size:40px;">Some Songs For You 🎶🤌✨</h2>
+            <h2 class="songTitle">Some Songs For You 🎶🤌✨</h2>
             <ul class="songList">
                 <li data-song="hbdyMelody.mp3">Happy Birthday</li>
                 <li data-song="Co2.mp3">Co2</li>
@@ -137,28 +358,93 @@
                 <li data-song="party_time.mp3">Party Time</li>
             </ul>
 
-            
             <audio class="audioPlayer" controls>
                 <source src="audio/hbdyMelody.mp3" type="audio/mp3">
                 Your browser does not support the audio element.
             </audio>
+
+             <div class="songNameBox">
+            <p id="selectedSongName">Please choose a song</p>
+    </div>
         </div>
+
+        <div class="separator">❤️</div>
+        
         <div id="GalleryArea">
-            <h2>Gallery</h2>
-            <p>Gallery content goes here...</p>
+            <div class="galleryTitle">Gallery</div>
+            <div class="galleryEmojis">📸🤌🧿✨</div>
+            <div class="galleryContainer">
+                
+                <div class="smallImages leftStrip">
+                    <img src="images/IMG_20250909_231416_326.jpg" class="sdisplay">
+                    <img src="images/IMG_20250612_162021_129.jpg" class="sdisplay">
+                    <img src="images/IMG_20250901_030311_858.jpg" class="sdisplay">
+                </div>
+                
+                <div class="bDisplayArea">
+                    <img src="" class="bDisplay">
+                </div>
+                
+                <div class="smallImages rightStrip">
+                    <img src="images/IMG_20250909_212839_090.jpg" class="sdisplay">
+                    <img src="images/IMG_20250909_212837_123.jpg" class="sdisplay">
+                    <img src="images/IMG_20250909_231338_402.jpg" class="sdisplay">
+                </div>
+            </div>
+           
+            <div class="bottomRow1">                
+                <img src="images/IMG_20250909_231416_326.jpg" class="sdisplay">
+                <img src="images/IMG_20250612_162021_129.jpg" class="sdisplay">
+                <img src="images/IMG_20250901_030311_858.jpg" class="sdisplay">
+                <img src="images/IMG_20250909_212839_090.jpg" class="sdisplay">
+                <img src="images/IMG_20250909_212837_123.jpg" class="sdisplay">
+                <img src="images/IMG_20250909_231338_402.jpg" class="sdisplay">
+                <img src="images/IMG_20250909_231348_461.jpg" class="sdisplay">
+                <img src="images/IMG_20250909_231350_027.jpg" class="sdisplay">
+                <img src="images/IMG_20250909_231356_561.jpg" class="sdisplay">
+                <img src="images/IMG_20250909_231416_326.jpg" class="sdisplay">
+            </div>
+
+            <div class="bottomRow2">                
+                <img src="images/IMG_20250909_231416_326.jpg" class="sdisplay">
+                <img src="images/IMG_20250612_162021_129.jpg" class="sdisplay">
+                <img src="images/IMG_20250901_030311_858.jpg" class="sdisplay">
+                <img src="images/IMG_20250909_212839_090.jpg" class="sdisplay">
+                <img src="images/IMG_20250909_212837_123.jpg" class="sdisplay">
+                <img src="images/IMG_20250909_231338_402.jpg" class="sdisplay">
+                <img src="images/IMG_20250909_231348_461.jpg" class="sdisplay">
+                <img src="images/IMG_20250909_231350_027.jpg" class="sdisplay">
+                <img src="images/IMG_20250909_231356_561.jpg" class="sdisplay">
+                <img src="images/IMG_20250909_231416_326.jpg" class="sdisplay">
+            </div>
         </div>
 
         <script>
+            // Song
             const songListItems = document.querySelectorAll('.songList li');
             const audioPlayer = document.querySelector('.audioPlayer');
             const audioSource = audioPlayer.querySelector('source');
+            const songNameBox = document.getElementById('selectedSongName');
 
             songListItems.forEach(item => {
                 item.addEventListener('click', function () {
                     const songFile = item.getAttribute('data-song');
                     audioSource.src = songFile;
+                    const songName = item.textContent;
                     audioPlayer.load();
                     audioPlayer.play();
+
+                    songNameBox.textContent = `🎶✨Now playing: ${songName} ✨🎶`;
+                });
+            });
+
+            // Gallery 
+            const bDisplay = document.querySelector('.bDisplay');
+            const sDisplays = document.querySelectorAll('.sdisplay');
+            sDisplays.forEach(img => {
+                img.addEventListener('mouseenter', function () {
+                    const imgSrc = img.getAttribute('src');
+                    bDisplay.src = imgSrc;
                 });
             });
         </script>
