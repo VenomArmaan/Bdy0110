@@ -18,11 +18,12 @@
             background-color: #ffa7c4;
             color: rgb(255, 12, 174);
             font-family: Arial, sans-serif;
-            font-size: 6vw;
+            font-size: 6vw; /* Responsive font-size based on viewport width */
             margin: 0;
             position: relative;
             flex-direction: column;
             transition: background-image 1s ease;
+            overflow: hidden; /* Prevent overflow on smaller screens */
         }
 
         .Countdown {
@@ -45,28 +46,28 @@
             transition: opacity 1s ease;
         }
 
-        .top-left {
+        .top-left, .top-right, .bottom-left, .bottom-right {
             width: 20vw;
-            top: 0px;
-            left: 0px;
+        }
+
+        .top-left {
+            top: 0;
+            left: 0;
         }
 
         .top-right {
-            width: 20vw;
-            top: 0px;
-            right: 0px;
+            top: 0;
+            right: 0;
         }
 
         .bottom-left {
-            width: 15vw;
-            bottom: 0px;
-            left: 0px;
+            bottom: 0;
+            left: 0;
         }
 
         .bottom-right {
-            width: 15vw;
-            bottom: 0px;
-            right: 0px;
+            bottom: 0;
+            right: 0;
         }
 
         .gif-container {
@@ -76,12 +77,35 @@
         }
 
         .gif-container img {
-            max-width: 50%;
+            max-width: 80%; /* Make GIF responsive */
             height: auto;
         }
 
         .ribbon {
             font-size: 0.8em;
+        }
+
+        /* Media Query for smaller screens */
+        @media (max-width: 600px) {
+            body {
+                font-size: 10vw; /* Larger font-size on smaller screens */
+            }
+
+            .Countdown {
+                gap: 3vw; /* Increase space between elements on small screens */
+            }
+
+            .top-left, .top-right, .bottom-left, .bottom-right {
+                width: 25vw; /* Adjust decoration image sizes */
+            }
+
+            .gif-container img {
+                max-width: 100%; /* Allow GIF to take up more space on mobile */
+            }
+
+            .ribbon {
+                font-size: 1em; /* Increase ribbon size for mobile */
+            }
         }
     </style>
 </head>
@@ -117,9 +141,11 @@
                 countdownText.innerHTML = "✨It's your birthday!!!!✨";
                 countdownText.parentElement.classList.add("celebrate-hover");
 
-                document.body.style.backgroundImage = "url('images/image.png')";
+                document.body.style.backgroundImage = "url('images/sparklyBlackBg.png')";
                 document.body.style.backgroundSize = "cover";
                 document.body.style.backgroundRepeat = "no-repeat";
+                document.body.style.backgroundheight = "100%";
+                document.body.style.backgroundWidth = "auto";
 
                 document.querySelector('.gif-container').style.display = 'none';
 
@@ -137,7 +163,7 @@
                 });
 
                 countdownText.parentElement.addEventListener("click", () => {
-                    window.location.href = "/Bdy0110/HomePageBdy.html";
+                    window.location.href = "/HomePageBdy.html";
                 });
 
                 clearInterval(interval);
@@ -157,10 +183,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
