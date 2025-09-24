@@ -18,12 +18,12 @@
             background-color: #ffa7c4;
             color: rgb(255, 12, 174);
             font-family: Arial, sans-serif;
-            font-size: 6vw; /* Responsive font-size based on viewport width */
+            font-size: 4vw; /* Smaller font size for more compact layout */
             margin: 0;
             position: relative;
             flex-direction: column;
             transition: background-image 1s ease;
-            overflow: hidden; /* Prevent overflow on smaller screens */
+            overflow: hidden;
         }
 
         .Countdown {
@@ -33,7 +33,7 @@
             font-family: "Dancing Script", cursive;
             display: flex;
             align-items: center;
-            gap: 1vw;
+            gap: 1.5vw; /* Reduced gap for more compact layout */
         }
 
         .celebrate-hover:hover {
@@ -47,7 +47,7 @@
         }
 
         .top-left, .top-right, .bottom-left, .bottom-right {
-            width: 20vw;
+            width: 15vw; /* Smaller corner images */
         }
 
         .top-left {
@@ -72,35 +72,35 @@
 
         .gif-container {
             display: block;
-            margin-top: 20px;
+            margin-top: 15px; /* Reduced margin */
             text-align: center;
         }
 
         .gif-container img {
-            max-width: 80%; /* Make GIF responsive */
+            max-width: 60%; /* Smaller GIF size */
             height: auto;
         }
 
         .ribbon {
-            font-size: 0.8em;
+            font-size: 0.7em; /* Smaller ribbon */
         }
 
         /* Media Query for smaller screens */
         @media (max-width: 600px) {
             body {
-                font-size: 10vw; /* Larger font-size on smaller screens */
+                font-size: 6vw; /* Slightly larger for mobile but still compact */
             }
 
             .Countdown {
-                gap: 3vw; /* Increase space between elements on small screens */
+                gap: 3vw; /* Maintain some space between elements */
             }
 
             .top-left, .top-right, .bottom-left, .bottom-right {
-                width: 25vw; /* Adjust decoration image sizes */
+                width: 20vw; /* Adjust corner images for mobile */
             }
 
             .gif-container img {
-                max-width: 100%; /* Allow GIF to take up more space on mobile */
+                max-width: 90%; /* Allow GIF to scale more on mobile */
             }
 
             .ribbon {
