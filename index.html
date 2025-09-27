@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Countdown</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
             font-family: "Dancing Script", cursive;
             display: flex;
             align-items: center;
-            gap: 2vw; /* Increased gap for better spacing */
+            gap: 2vw;
         }
 
         .celebrate-hover:hover {
@@ -46,8 +46,11 @@
             transition: opacity 1s ease;
         }
 
-        .top-left, .top-right, .bottom-left, .bottom-right {
-            width: 20vw; /* Increased corner image size */
+        .top-left,
+        .top-right,
+        .bottom-left,
+        .bottom-right {
+            width: 20vw;
         }
 
         .top-left {
@@ -72,43 +75,68 @@
 
         .gif-container {
             display: block;
-            margin-top: 20px; /* Increased margin for better spacing */
+            margin-top: 20px;
             text-align: center;
         }
 
         .gif-container img {
-            max-width: 40%; /* Smaller GIF size */
+            max-width: 40%;
             height: auto;
         }
 
         .ribbon {
-            font-size: 0.8em; /* Slightly bigger ribbon size */
+            font-size: 0.8em;
         }
 
-        /* Media Query for smaller screens */
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        #video-container video {
+            width: 100%;
+            height: auto;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
         @media (max-width: 600px) {
             body {
-                font-size: 6vw; /* Slightly larger font size for mobile */
+                font-size: 6vw;
             }
 
             .Countdown {
-                gap: 3vw; /* Increased gap for better spacing */
+                gap: 3vw;
             }
 
-            .top-left, .top-right, .bottom-left, .bottom-right {
-                width: 25vw; /* Larger corner images on mobile */
+            .top-left,
+            .top-right,
+            .bottom-left,
+            .bottom-right {
+                width: 25vw;
             }
 
             .gif-container img {
-                max-width: 60%; /* Allow GIF to scale more on mobile */
+                max-width: 60%;
             }
 
             .ribbon {
-                font-size: 1em; /* Increased ribbon size for mobile */
+                font-size: 1em;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="Countdown">
         <span class="ribbon">🎀</span>
@@ -116,8 +144,9 @@
         <span class="ribbon">🎀</span>
     </div>
 
-    <div class="gif-container">  
-        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHVzdTBybGhwOXhleGcxbXNrdXVvaGFidXhudWowaTBqdXp1cTg0MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c76IJLufpNwSULPk77/giphy.gif" alt="Event Celebration GIF">
+    <div class="gif-container">
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHVzdTBybGhwOXhleGcxbXNrdXVvaGFidXhudWowaTBqdXp1cTg0MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c76IJLufpNwSULPk77/giphy.gif"
+            alt="Event Celebration GIF">
     </div>
 
     <img src="images/imgTL.png" alt="Top Left Decoration" class="corner-img top-left">
@@ -125,11 +154,14 @@
     <img src="images/imgBL.png" alt="Bottom Left Decoration" class="corner-img bottom-left">
     <img src="images/imgBR.png" alt="Bottom Right Decoration" class="corner-img bottom-right">
 
+    <div id="video-container">
+        <video id="celebration-video">
+            <source src="images/BlowCandle.mp4" type="video/mp4">
+            Your browser does not support the video element.
+        </video>
+    </div>
 
     <script>
-
-
-        // For mobile autoplay restrictions
         window.addEventListener('click', () => {
             const music = document.getElementById('bg-music');
             if (music.paused) {
@@ -137,9 +169,8 @@
                     console.warn("Autoplay failed:", e);
                 });
             }
-        },      { once: true }); // Only need to run once    
-        
-    
+        }, { once: true });
+
         const eventDate = new Date('2025-10-01T00:00:00');
 
         function pad(num) {
@@ -158,8 +189,6 @@
                 document.body.style.backgroundImage = "url('images/sparklyBlackBg.png')";
                 document.body.style.backgroundSize = "cover";
                 document.body.style.backgroundRepeat = "no-repeat";
-                document.body.style.backgroundheight = "100%";
-                document.body.style.backgroundWidth = "auto";
 
                 document.querySelector('.gif-container').style.display = 'none';
 
@@ -177,7 +206,21 @@
                 });
 
                 countdownText.parentElement.addEventListener("click", () => {
-                    window.location.href = "/Bdy0110/HomePageBdy";
+                    const videoContainer = document.getElementById('video-container');
+                    videoContainer.style.display = 'flex';
+                    setTimeout(() => {
+                        videoContainer.style.opacity = 1;
+                    }, 10);
+
+                    const video = document.getElementById('celebration-video');
+                    video.play();
+
+                    video.onended = () => {
+                        videoContainer.style.opacity = 0;
+                        setTimeout(() => {
+                            window.location.href = "/Bdy0110/HomePageBdy";
+                        }, 1000);
+                    };
                 });
 
                 clearInterval(interval);
@@ -195,15 +238,11 @@
         const interval = setInterval(updateCountdown, 1000);
         updateCountdown();
     </script>
-    
+
     <audio id="bg-music" autoplay loop hidden>
         <source src="lofi-sweet-song-265674.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-
 </body>
+
 </html>
-
-
-
-
