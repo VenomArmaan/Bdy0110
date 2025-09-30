@@ -56,26 +56,61 @@
                 position: relative;
             }
 
+            #HomeArea h1{
+                 background-color: white;
+                color: black; 
+                padding: 15px; 
+                border-radius: 10px; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+                text-align: center;
+                max-width: 80%;
+               
+                font-size: 2em;
+                margin: 10px;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+
+            }
             
-            #HomeArea h1, #HomeArea p {
+            #HomeArea p {
                 background-color: white;
                 color: black; 
                 padding: 15px; 
                 border-radius: 10px; 
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+                text-align: center;
+                max-width: 80%;
+                font-family: 'Georgia', serif;
+                font-size: 1.5em;
+                margin: 10px;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+                border: #000000 solid 2px;
+                
+                border-radius: 20px;
             }
 
             /* Message Area */
             #MessageArea {
                 background-image: url('images/bowBerryBg.png');
                 background-size: cover;
-                display: flex;
                 font-size: 1.5em;
                 font-weight: bold;
                 line-height: 1.5;
                 height: 100vh;
                 justify-content: center;
                 align-items: center;
+                align-content: center;
+                align-self: center;
+                display: flex;
+                flex-direction: column;
+            }
+            .MessageArea div{
+                background-color: rgba(255, 255, 255, 0.8); 
+                color: black; 
+                padding: 20px;  
+                border-radius: 10px; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); 
+                background-color: white;   
+                max-width: 80%; 
             }
             .MessageArea p {
                 background-color: rgba(255, 255, 255, 0.8); 
@@ -83,7 +118,8 @@
                 padding: 20px;  
                 border-radius: 10px; 
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); 
-                background-color: white;           
+                background-color: white;   
+                max-width: 80%;        
             }
 
             /* About Her Section */
@@ -103,26 +139,43 @@
                 color: white;
                 text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);                
             }
-            #AboutHer h2 {
-                border-radius: 10px; 
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); 
-                background-color: white;
-                font-size: 40px;
+            #AboutHer span {
+                font-size: 1.2em;
                 margin-bottom: 20px;
-                color: rgb(247, 8, 8);
+                color: rgb(58, 29, 202);
                 text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+                font-family: 'Georgia', serif;
+                background-color: rgba(255, 255, 255, 0.5);
+                border-radius: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
             }
             #AboutHer p {
-                background-color: rgba(255, 255, 255, 0.8); 
-                color: black; 
-                padding: 20px; 
-                border-radius: 10px; 
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); 
-                font-size: 0.9em;
-                line-height: 1.6;                        
+                font-size: 0.6em; /* Default font size */
+                line-height: 1.6;
+                color: white;
+                text-align: center;
+                font-family: 'Georgia', serif;
+                max-width: 100%;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: rgba(0, 0, 0, 0.5);
+                border-radius: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+    
+                
+                column-count: 4; 
+                column-gap: 20px; 
+                word-wrap: break-word; 
+    
+                }    
+            @media (max-width: 768px) {
+            #AboutHer p {
+                font-size: 1em;
+                column-count: 1; 
             }
-            
-            
+            }
 
             /* Songs Section */
             #SongsArea {
@@ -321,31 +374,110 @@
             <a href="bdy0110.html">Countdown</a>
         </div>
         
+        <div class="separator">❤️</div>
 
         <div id="HomeArea">
             <h1>Welcome to the Birthday Celebration!</h1>
-            <p>Navigate through the sections using the top menu.</p>
+            <p>
+                Hope you have a fantastic day! 🎉🎂🎈<br>
+                Enjoy every moment and make wonderful memories! 🥳📸🎁<br><br>
+                
+                (Navigate through the sections using the top menu.)<br>
+                (hopes u like it)                <br><br>
+                Made with ❤️ by your friend Armaan
+
+            </p>
         </div>
 
         <div class="separator">❤️</div>
 
         <div id="MessageArea" class="MessageArea">
-            <p>A very Happppppyy birthday to you..........................................................</p>
+            <div>Happyy Birthdayy 🍰🎉🎈🥳 </div>
+            <p>Heeeyyyy myyy dearrr lovee♥️✨,<br> A veryyyy veryyy superrr happpyyy Birthdayyyy 🎂🥳🎊 to Youuu my sweeetttiee pieee🍯✨,
+            Lot's and lottsss of wishes to you on your special day🤌💗, May your each and every dream come true and you achieve your goals and make your loved ones and yourself proud of it🧿💝. I amm soo sooo sooo happyyyy for your day, which is actually "Mine day🤌♥️✨", May all the sweetness and love of this entire universe fall into your life's sack. I would always pray for your well being and melodious life, and pray that the bad spirits/rough times may never so ever come near you 🕉️✨🧿. May you always be surrounded with sparkles and glitter all around you 💫💖, may u always keep shining my pink moon🌛💗. Thankuuu so much for being with my whenever i needed you 💞✨, you were my supporter, my guide, my coach who always motivated me for doing my best and never give up. Thankuuu soo muchh myy fulffy panda for being with me ♥️🧿.  Bundles of wishes and love for youu mine girl 💓🧿✨. Lots of love to youu Madam jii 🫠🫀🧿✨🎀.
+        </p>
         </div>
 
         <div class="separator">❤️</div>
 
         <div id="AboutHer" >
-            <h2 style="font-size:40px;">About You 🎂🎉✨</h2>
+           
+            <span>“The way I love you…”</span> <br>
             <p>
-             Hey Cutie Pie!
-                <br> You are the most beautiful, kind-hearted, and amazing person I know.
-                <br> Your smile lights up every room, and your laughter is contagious.
-                <br> You have a heart of gold, always caring for others and spreading positivity.
+            
+            • The way I felt when I first saw you<br>
+            • That day, February 17,<br>
+            • My heart sank deep, and time froze through<br>
+            • A wave of love swept over me, calm and real<br>
+            • made me feel something I never went through <br>
+            • I’d never felt that kind of breeze before<br>
+            • Like standing on the love’s gentle shore<br>
+            • It’s hard to explain what that moment meant<br>
+            • But my heart still dances in its content.<br><br>
 
-              
+            • I love you like the flower loves its petal<br>
+            • Like warm tea loves its favourite kettle<br>
+            • I love you like the moon loves night<br>
+            • Forever drawn to your gentle light<br>
+            • I love you like the pen loves ink,<br>
+            • Writing our story in every blink<br>
+            • Like sugar loves tea, or birds love sky<br>
+            • I’m yours, my love, no need to shy<br><br>
+
+            • I saw your smile, the skies turned blue<br>
+            • My world began and ended in you<br>
+            • My soul found home within your gaze<br>
+            • A quiet fire, an endless blaze<br>
+            • I love you for the fact that I LOVE U<br>
+            • for the beautiful soul that is you.<br><br>
+
+            • With you I am a different me<br>
+            • the one I love to be<br>
+            • You are my light bulb in the dark night<br>
+            • you are the spark who make my world bright<br><br>
+
+            • You bring the smile in my day<br>
+            • My favourite shelter, where my soul would stay <br><br>
+
+            • hey, Can I call u mine?<br>
+            • the angel of heavens <br>
+            • beauty so divine <br><br>
+
+            • If you could ever look through my eyes<br>
+            • Only then You would know your value<br>
+            • The love and purity you comprise <br>
+
+            
+            • I wish the “some better day” come true soon <br>
+            • the day this fading star, will get his shining moon<br>
+            • the day this dry desert will get his monsoon <br>
+ 
+            • If you could ever look through my eyes<br>
+            • Only then You would know your value<br>
+T           • he love and purity you comprise <br>
+
+            • These words aren’t enough to justify<br>
+            • the reason why I love you,<br>
+            • writing poems like these, is just my way<br>
+            • to try to shape up my words due<br>
+
+            • And still maybe your answer would remain no<br>
+            • but no regrets on that, cuz I love you more<br>
+            • even if u never said me yess, I shall be all yours<br>
+            • waiting for u, at the crackling doors<br><br>
+
+            • So don’t u worry if u ever need me<br>
+            • Just raid me up whenever u want <br>
+            • I shall be with you whole time<br>
+            • We are, and will be the partners in crime<br><br><br>
+
+            →to be continued jii.......
+        
+
+
+
             </p>
-        </div>
+            </div>
 
         <div class="separator">❤️</div>
 
@@ -354,8 +486,10 @@
             <ul class="songList">
                 <li data-song="hbdyMelody.mp3">Happy Birthday</li>
                 <li data-song="Co2.mp3">Co2</li>
-                <li data-song="best_day_ever.mp3">Best Day Ever</li>
-                <li data-song="party_time.mp3">Party Time</li>
+                <li data-song="KabhiKabhi/Hamsafar.mp3">Kabhi-Kabhi / Hamsafar</li>
+                <li data-song="Blue.mp3">Blue</li>
+                <li data-song="HighOnYou.mp3">High On You</li>
+                <li data-song="OMeriLaila.mp3">O Meri Laila</li>
             </ul>
 
             <audio class="audioPlayer" controls>
@@ -417,6 +551,10 @@
                 <img src="images/IMG_20250909_231356_561.jpg" class="sdisplay">
                 <img src="images/IMG_20250909_231416_326.jpg" class="sdisplay">
             </div>
+        </div>
+
+        <div class="separator">❤️</div>
+
         </div>
 
         <script>
